@@ -1,20 +1,20 @@
-#' CHD prediction in middle-aged white population using TC and LDL-C categories
+#' CHD prediction over ten years in middle-aged white population using TC and LDL categories
 #'
-#' @param age number
-#' @param sex binary
-#' @param TC  Total cholestrol categorical
-#' @param HDL-C HDL cholesterol categorical
-#' @param bloodP categorical
-#' @param systolic without regard to the usr of antihypertensive medication
-#' @param diastolic without regard to the usr of antihypertensive medication
-#' @param diabetes binary
-#' @param smoker binary during the past 12 month
+#' @param age A number for age
+#' @param sex A binary variables taking 1 for men and 0 for women
+#' @param TC  A number for Total cholestrol in mg/dL
+#' @param HDL A number for HDL cholesterol  in mg/dL
+#' @param LDL A number for LDL cholesterol  in mg/dL
+#' @param systolic  A number for systolic Blood pressure in mm Hg without regard to the use of antihypertensive medication
+#' @param diastolic A number for diastolic blood pressure in mm Hg without regard to the use of antihypertensive medication
+#' @param diabetes A binary variable taking 1 if the participant was under treatment with insulin or oral hypoglycemic agents, if casual blood glucose  determinations exceeded 150 mg/dL at two clinic visits in the original cohort, or if fasting blood glucose exceeded 140 mg/dL at the initial examination of the Offspring Study participants
+#' @param smoker A binary variable taking 1 for person who smoked during the past 12 month ans 0 therwise
 #'
 #' @return
 #' @example
 #' @source
 
-CHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, smoker) {
+predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, smoker) {
 
 
   #categories of blood pressure systolic
@@ -127,9 +127,10 @@ CHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, smoker) 
    if (BP == 1) {
      BP_tccoef = -0.00226
    } else if (BP == 2) {
-     v = 0
+     BP_tccoef = 0
    } else if (BP == 3) {
      BP_tccoef = 0.28320
+
    } else if (BP == 4) {
      BP_tccoef = 0.52168
    } else if (BP == 5) {
@@ -212,13 +213,13 @@ CHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, smoker) 
     if (BP == 1) {
       BP_tccoef = -0.53363
     } else if (BP == 2) {
-      systolic_tccoef = 0
+      BP_tccoef = 0
     } else if (BP == 3) {
-      systolic_tccoef = 0.06773
+      BP_tccoef = 0.06773
     } else if (BP == 4) {
-      systolic_tccoef = 0.26288
+      BP_tccoef = 0.26288
     } else if (BP == 5) {
-      systolic_tccoef = 0.46573
+      BP_tccoef = 0.46573
     }
 
     #systolic coefficient in range using LDL categories
@@ -304,13 +305,13 @@ CHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, smoker) 
   results <- list()
 
   if (sex == 1) {
-    results$ tc_CHDprediction <- P_tc_men
-    results$ldl_CHDprediction <- P_ldl_men
+    results$CHDprediction_use_tc <- P_tc_men
+    results$CHDprediction_use_ldl <- P_ldl_men
     return (results)
 
   } else if (sex == 0) {
-    results$ tc_CHDprediction <- P_tc_women
-    results$ldl_CHDprediction <- P_ldl_women
+    results$CHDprediction_use_tc <- P_tc_women
+    results$CHDprediction_use_ldl <- P_ldl_women
     return (results)
 
   }
