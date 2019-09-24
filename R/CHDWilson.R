@@ -1,5 +1,4 @@
-#' CHD prediction over ten years in middle-aged white population using TC and LDL categories
-#'
+#' Predicting Coronary Heart Disease (CHD) over ten years using TC and LDL categories
 #' @param age A number for age
 #' @param sex A binary variables taking 1 for men and 0 for women
 #' @param TC  A number for Total cholestrol in mg/dL
@@ -8,16 +7,21 @@
 #' @param systolic  A number for systolic Blood pressure in mm Hg without regard to the use of antihypertensive medication
 #' @param diastolic A number for diastolic blood pressure in mm Hg without regard to the use of antihypertensive medication
 #' @param diabetes A binary variable taking 1 if the participant was under treatment with insulin or oral hypoglycemic agents, if casual blood glucose  determinations exceeded 150 mg/dL at two clinic visits in the original cohort, or if fasting blood glucose exceeded 140 mg/dL at the initial examination of the Offspring Study participants
-#' @param smoker A binary variable taking 1 for person who smoked during the past 12 month ans 0 therwise
+#' @param smoker A binary variable taking 1 for person who smoked during the past 12 month and 0 therwise
 #'
-#' @return
-#' @example
-#' @source
+#' @examples
+#'
+#' predictCHD (age = 55, sex = 1, TC = 250, LDL = 120, HDL = 39, systolic = 146, diastolic = 88, diabetes = 0 , smoker =1)
+#'
+#'
+#' predictCHD (age = 30, sex = 0, TC = 170, LDL = 120, HDL = 39, systolic = 145, diastolic = 88, diabetes = 0 , smoker =1)
+#'
+#' @source  \url{https://www.ahajournals.org/doi/full/10.1161/01.CIR.97.18.1837}
 
 predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, smoker) {
 
 
-  #categories of blood pressure systolic
+  #categories of blood pressure systolic based on Joint National Committee (JNC-V) blood pressure
 
   if (systolic < 120) {
     #Normal blood pressure
@@ -36,7 +40,7 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
     BP_s = 5
   }
 
-  #categories of blood pressure diastolic
+  #categories of blood pressure diastolic based on Joint National Committee (JNC-V) blood pressure
 
   if (diastolic < 80) {
     #Normal blood pressure
@@ -69,6 +73,7 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
 
  #================================================================ Men =======================================================================
   if (sex == 1) {
+
  #TCl coefficient in range using TC categories
   if (TC < 160) {
     TC_tccoef = -0.65945
@@ -81,6 +86,7 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
   } else if (TC >= 280) {
     TC_tccoef = 0.65713
   }
+
 
   #LDL coefficient in range using LDL categories
   if (LDL < 100) {
@@ -95,6 +101,7 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
     LDL_ldlcoef = 0.56705
   }
 
+
   #HDL-C coefficient in range using TC categories
   if (HDL < 35) {
     HDL_tccoef = 0.49744
@@ -107,6 +114,7 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
   } else if (HDL >= 60) {
     HDL_tccoef = -0.48660
   }
+
 
     #HDL-C coefficient in range using LDL categories
     if (HDL < 35) {
@@ -122,7 +130,6 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
     }
 
 
-
   #systolic coefficient in range using TC categories
    if (BP == 1) {
      BP_tccoef = -0.00226
@@ -130,12 +137,12 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
      BP_tccoef = 0
    } else if (BP == 3) {
      BP_tccoef = 0.28320
-
    } else if (BP == 4) {
      BP_tccoef = 0.52168
    } else if (BP == 5) {
      BP_tccoef = 0.61859
    }
+
 
     #systolic coefficient in range using LDL categories
     if (BP == 1) {
@@ -149,7 +156,6 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
     } else if (BP == 5) {
       BP_ldlcoef = 0.65107
     }
-
 
 
   #============================================================= Women ====================================================================
@@ -167,6 +173,7 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
     TC_tccoef = 0.53513
   }
 
+
     #LDL coefficient in range using LDL categories
     if (LDL < 100) {
       LDL_ldlcoef = -0.42616
@@ -179,6 +186,7 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
     } else if (LDL >= 190) {
       LDL_ldlcoef = 0.33251
     }
+
 
   #HDL-C coefficient in range using TC categories
   if (HDL < 35) {
@@ -208,7 +216,6 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
     }
 
 
-
     #systolic coefficient in range using TC categories
     if (BP == 1) {
       BP_tccoef = -0.53363
@@ -221,6 +228,7 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
     } else if (BP == 5) {
       BP_tccoef = 0.46573
     }
+
 
     #systolic coefficient in range using LDL categories
     if (BP == 1) {
@@ -238,6 +246,7 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
 
  }
     #================================================== Prediction using TC =========================================================
+
   L_tc_men <- 0.04826 * age + TC_tccoef + HDL_tccoef + BP_tccoef + 0.42839 * diabetes + 0.52337 * smoker
 
   #values of the means
@@ -269,6 +278,7 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
   P_tc_women <- round((1 - (s_tc_women) ^ B_tc_women)* 100, digits = 0)
 
   #================================================== Prediction using LDL =========================================================
+
   L_ldl_men <- 0.04808 * age + LDL_ldlcoef + HDL_ldlcoef + BP_ldlcoef + 0.42146 * diabetes + 0.54377 * smoker
 
   #values of the means
