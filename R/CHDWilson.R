@@ -1,24 +1,24 @@
 #' Predicting Coronary Heart Disease (CHD) over ten years using TC and LDL categories
 #' @param age A number for age
-#' @param sex A binary variables taking 1 for men and 0 for women
+#' @param gender A binary variables taking 1 for men and 0 for women
 #' @param TC  A number for Total cholestrol in mg/dL
 #' @param HDL A number for HDL cholesterol  in mg/dL
 #' @param LDL A number for LDL cholesterol  in mg/dL
-#' @param systolic  A number for systolic Blood pressure in mm Hg without regard to the use of antihypertensive medication
+#' @param systolic  A number for systolic blood pressure in mm Hg without regard to the use of antihypertensive medication
 #' @param diastolic A number for diastolic blood pressure in mm Hg without regard to the use of antihypertensive medication
 #' @param diabetes A binary variable taking 1 if the participant was under treatment with insulin or oral hypoglycemic agents, if casual blood glucose  determinations exceeded 150 mg/dL at two clinic visits in the original cohort, or if fasting blood glucose exceeded 140 mg/dL at the initial examination of the Offspring Study participants
 #' @param smoker A binary variable taking 1 for person who smoked during the past 12 month and 0 therwise
 #'
 #' @examples
 #'
-#' predictCHD (age = 55, sex = 1, TC = 250, LDL = 120, HDL = 39, systolic = 146, diastolic = 88, diabetes = 0 , smoker =1)
-#'
-#'
-#' predictCHD (age = 30, sex = 0, TC = 170, LDL = 120, HDL = 39, systolic = 145, diastolic = 88, diabetes = 0 , smoker =1)
+#' predictCHD (age = 55, gender = 1, TC = 250, LDL = 120, HDL = 39, systolic = 146, diastolic = 88, diabetes = 0 , smoker =1)
+#' predictCHD (age = 30, gender = 0, TC = 170, LDL = 120, HDL = 39, systolic = 145, diastolic = 88, diabetes = 0 , smoker =1)
 #'
 #' @source  \url{https://www.ahajournals.org/doi/full/10.1161/01.CIR.97.18.1837}
 
-predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, smoker) {
+
+
+predictCHD <- function (age, gender, TC, LDL, HDL, systolic, diastolic, diabetes, smoker) {
 
 
   #categories of blood pressure systolic based on Joint National Committee (JNC-V) blood pressure
@@ -72,7 +72,7 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
 
 
  #================================================================ Men =======================================================================
-  if (sex == 1) {
+  if (gender == 1) {
 
  #TCl coefficient in range using TC categories
   if (TC < 160) {
@@ -159,7 +159,7 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
 
 
   #============================================================= Women ====================================================================
-  } else if (sex == 0) {
+  } else if (gender == 0) {
   #TCl coefficient in range using TC categories
   if (TC < 160) {
     TC_tccoef = -0.26138
@@ -312,19 +312,29 @@ predictCHD <- function (age, sex, TC, LDL, HDL, systolic, diastolic, diabetes, s
 
 
 
-  results <- list()
 
-  if (sex == 1) {
-    results$CHDprediction_use_tc <- P_tc_men
-    results$CHDprediction_use_ldl <- P_ldl_men
+results <- list()
+
+if (age > 29 & age < 75) {
+
+if (gender == 1) {
+  results$CHDprediction_use_tc <- P_tc_men
+  results$CHDprediction_use_ldl <- P_ldl_men
+  return (results)
+
+    } else if (gender == 0) {
+  results$CHDprediction_use_tc <- P_tc_women
+  results$CHDprediction_use_ldl <- P_ldl_women
+  return (results)
+
+    }
+
+
+} else {
+    results$prediction <- 'Not_in_age_range'
     return (results)
-
-  } else if (sex == 0) {
-    results$CHDprediction_use_tc <- P_tc_women
-    results$CHDprediction_use_ldl <- P_ldl_women
-    return (results)
-
   }
-
 }
+
+
 
