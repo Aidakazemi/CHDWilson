@@ -8,7 +8,7 @@ Authors@R: c(
 Maintainer: Amin Adibi <adibi@alumni.ubc.ca>
 Description: Predicts chance of developing Coronary Heart Disease risk using Total cholesterol and LDL Cholesterol risk factors using Joint National Committee (JNC-V) blood pressure and National Cholesterol Education program (NCEP) categories respectively and based on patients's health status.
  LDL Cholesterol is the major atherogenic lipoprotein and that measurement of LDL Cholesterol levels in the clinical setting provides an advantagebase on clinicla trial results.
-License: WGPL-3
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
