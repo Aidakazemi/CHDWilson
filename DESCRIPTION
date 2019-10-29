@@ -6,8 +6,8 @@ Authors@R: c(
        person("Aida","Kazemi", email = "aidakazemi10@gmail.com", role = c("aut", "cph")),
        person("Amin", "Adibi", email = "adibi@alumni.ubc.ca", role = c("aut", "cre")))
 Maintainer: Amin Adibi <adibi@alumni.ubc.ca>
-Description: Predicts chance of developing Coronary Heart Disease risk using Total cholesterol and LDL Cholesterol risk factors using Joint National Committee (JNC-V) blood pressure and National Cholesterol Education program (NCEP) categories respectively and based on patients's health status.
- LDL Cholesterol is the major atherogenic lipoprotein and that measurement of LDL Cholesterol levels in the clinical setting provides an advantagebase on clinicla trial results.
+Description: Predicts chance of developing Coronary Heart Disease risk using Total Cholesterol and LDL Cholesterol risk factors using Joint National Committee (JNC-V) blood pressure and National Cholesterol Education program (NCEP) categories respectively and based on patients's health status.
+ LDL Cholesterol is the major atherogenic lipoprotein and that measurement of LDL Cholesterol levels in the clinical setting provides an advantage base on clinical trial results.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
