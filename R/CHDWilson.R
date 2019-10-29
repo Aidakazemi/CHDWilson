@@ -7,13 +7,15 @@
 #' @param LDL A number for LDL cholesterol  in mg/dL
 #' @param SBP  A number for SBP Blood pressure in mm Hg without regard to the use of antihypertensive medication
 #' @param DBP A number for DBP blood pressure in mm Hg without regard to the use of antihypertensive medication
-#' @param diabetes A binary variable taking 1 if the participant was under treatment with insulin or oral hypoglycemic agents, if casual blood glucose  determinations exceeded 150 mg/dL at two clinic visits in the original cohort, or if fasting blood glucose exceeded 140 mg/dL at the initial examination of the Offspring Study participants
+#' @param diabetes A binary variable taking 1 if the participant was under treatment with insulin or oral hypoglycemic agents, if casual blood glucose determinations exceeded 150 mg/dL at two clinic visits in the original cohort, or if fasting blood glucose exceeded 140 mg/dL at the initial examination of the Offspring Study participants
 #' @param smoker A binary variable taking 1 for person who smoked during the past 12 month and 0 therwise
 #'
 #' @examples
 #'
-#' predictCHD (age = 55, gender = 1, TChol = 250, LDL = 120, HDL = 39, SBP = 146, DBP = 88, diabetes = 0 , smoker =1)
-#' predictCHD (age = 30, gender = 0, TChol = 170, LDL = 120, HDL = 39, SBP = 145, DBP = 88, diabetes = 0 , smoker =1)
+#' predictCHD (age = 55, gender = 1, TChol = 250, LDL = 120, HDL = 39,
+#'             SBP = 146, DBP = 88, diabetes = 0 , smoker =1)
+#' predictCHD (age = 30, gender = 0, TChol = 170, LDL = 120, HDL = 39,
+#'             SBP = 145, DBP = 88, diabetes = 0 , smoker =1)
 #'
 #' @source  \url{https://www.ahajournals.org/doi/full/10.1161/01.CIR.97.18.1837}
 
