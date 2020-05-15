@@ -12,14 +12,14 @@
 #'
 #' @examples
 #'
-#' predictCHD (age = 55, gender = 1, TChol = 250, LDL = 120, HDL = 39,
+#' predictchd (age = 55, gender = 1, TChol = 250, LDL = 120, HDL = 39,
 #'             SBP = 146, DBP = 88, diabetes = 0 , smoker =1)
-#' predictCHD (age = 30, gender = 0, TChol = 170, LDL = 120, HDL = 39,
+#' predictchd (age = 30, gender = 0, TChol = 170, LDL = 120, HDL = 39,
 #'             SBP = 145, DBP = 88, diabetes = 0 , smoker =1)
 #'
 #' @source  \url{https://www.ahajournals.org/doi/full/10.1161/01.CIR.97.18.1837}
 
-predictCHD <- function (age, gender, TChol, LDL, HDL, SBP, DBP, diabetes, smoker) {
+predictchd <- function (age, gender, TChol, LDL, HDL, SBP, DBP, diabetes, smoker) {
 
 
   #categories of blood pressure SBP based on Joint National Committee (JNC-V) blood pressure

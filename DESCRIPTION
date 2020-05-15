@@ -1,4 +1,4 @@
-Package: CHDWilson
+Package: chdwilson
 Type: Package
 Title: Coronary Heat Disease (CHD) Prediction Model using risk factor categories over 10 years based on  <doi: 10.1161/01.cir.97.18.1837>
 Version: 0.1.0
@@ -11,4 +11,4 @@ Description: Predicts chance of developing Coronary Heart Disease risk using Tot
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
