@@ -26,7 +26,7 @@ To get a prediction for Coronary Heart Disease (CHD), you will need to pass in p
 predictchd (age = 55, gender = 1, TChol = 250, LDL = 120, HDL = 39, SBP = 146, DBP = 88, diabetes = 0 , smoker =1)
 ```
 
-The ***predictCHD()*** function returns the probability of developing Coronary Heart Disease (CHD) risk using Total Cholesterol and LDL Cholesterol risk factors over 10 years. LDL Cholesterol is the major atherogenic lipoprotein and that measurement of LDL Cholesterol levels in the clinical setting provides an advantage base on clinical trial results.
+The ***predictchd()*** function returns the probability of developing Coronary Heart Disease (CHD) risk using Total Cholesterol and LDL Cholesterol risk factors over 10 years. LDL Cholesterol is the major atherogenic lipoprotein and that measurement of LDL Cholesterol levels in the clinical setting provides an advantage base on clinical trial results.
 
 ### Cloud-based API Access
 The [PRISM platform](http://prism.resp.core.ubc.ca) allows users to access CHDWilson through the cloud. A MACRO-enabled Excel-file can be used to interact with the model and see the results. To download the PRISM Excel template file for CHDWilson please refer to the [PRISM model repository](http://resp.core.ubc.ca/ipress/prism).
