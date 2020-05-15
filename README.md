@@ -1,6 +1,7 @@
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/chdwilson)](https://CRAN.R-project.org/package=chdwilson)
-<!-- badges: end --> [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+<!-- badges: end --> 
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 ## chdwilson
 
