@@ -162,8 +162,18 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='fu'>predictchd</span> (<span class='kw'>age</span> <span class='kw'>=</span> <span class='fl'>55</span>, <span class='kw'>gender</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>TChol</span> <span class='kw'>=</span> <span class='fl'>250</span>, <span class='kw'>LDL</span> <span class='kw'>=</span> <span class='fl'>120</span>, <span class='kw'>HDL</span> <span class='kw'>=</span> <span class='fl'>39</span>,
-            <span class='kw'>SBP</span> <span class='kw'>=</span> <span class='fl'>146</span>, <span class='kw'>DBP</span> <span class='kw'>=</span> <span class='fl'>88</span>, <span class='kw'>diabetes</span> <span class='kw'>=</span> <span class='fl'>0</span> , <span class='kw'>smoker</span> <span class='kw'>=</span><span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='error'>Error in predictchd(age = 55, gender = 1, TChol = 250, LDL = 120, HDL = 39,     SBP = 146, DBP = 88, diabetes = 0, smoker = 1): could not find function "predictchd"</span></div><div class='input'><span class='fu'>predictchd</span> (<span class='kw'>age</span> <span class='kw'>=</span> <span class='fl'>30</span>, <span class='kw'>gender</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>TChol</span> <span class='kw'>=</span> <span class='fl'>170</span>, <span class='kw'>LDL</span> <span class='kw'>=</span> <span class='fl'>120</span>, <span class='kw'>HDL</span> <span class='kw'>=</span> <span class='fl'>39</span>,
-            <span class='kw'>SBP</span> <span class='kw'>=</span> <span class='fl'>145</span>, <span class='kw'>DBP</span> <span class='kw'>=</span> <span class='fl'>88</span>, <span class='kw'>diabetes</span> <span class='kw'>=</span> <span class='fl'>0</span> , <span class='kw'>smoker</span> <span class='kw'>=</span><span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='error'>Error in predictchd(age = 30, gender = 0, TChol = 170, LDL = 120, HDL = 39,     SBP = 145, DBP = 88, diabetes = 0, smoker = 1): could not find function "predictchd"</span></div><div class='input'>
+            <span class='kw'>SBP</span> <span class='kw'>=</span> <span class='fl'>146</span>, <span class='kw'>DBP</span> <span class='kw'>=</span> <span class='fl'>88</span>, <span class='kw'>diabetes</span> <span class='kw'>=</span> <span class='fl'>0</span> , <span class='kw'>smoker</span> <span class='kw'>=</span><span class='fl'>1</span>)</div><div class='output co'>#&gt; $CHDprediction_use_TChol
+#&gt; [1] 33
+#&gt; 
+#&gt; $CHDprediction_use_ldl
+#&gt; [1] 24
+#&gt; </div><div class='input'><span class='fu'>predictchd</span> (<span class='kw'>age</span> <span class='kw'>=</span> <span class='fl'>30</span>, <span class='kw'>gender</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>TChol</span> <span class='kw'>=</span> <span class='fl'>170</span>, <span class='kw'>LDL</span> <span class='kw'>=</span> <span class='fl'>120</span>, <span class='kw'>HDL</span> <span class='kw'>=</span> <span class='fl'>39</span>,
+            <span class='kw'>SBP</span> <span class='kw'>=</span> <span class='fl'>145</span>, <span class='kw'>DBP</span> <span class='kw'>=</span> <span class='fl'>88</span>, <span class='kw'>diabetes</span> <span class='kw'>=</span> <span class='fl'>0</span> , <span class='kw'>smoker</span> <span class='kw'>=</span><span class='fl'>1</span>)</div><div class='output co'>#&gt; $CHDprediction_use_TChol
+#&gt; [1] 1
+#&gt; 
+#&gt; $CHDprediction_use_ldl
+#&gt; [1] 1
+#&gt; </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
