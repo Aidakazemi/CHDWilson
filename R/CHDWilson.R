@@ -18,7 +18,7 @@
 #'             SBP = 145, DBP = 88, diabetes = 0 , smoker =1)
 #'
 #' @source  \url{https://www.ahajournals.org/doi/full/10.1161/01.CIR.97.18.1837}
-
+#' @export
 predictchd <- function (age, gender, TChol, LDL, HDL, SBP, DBP, diabetes, smoker) {
 
 
