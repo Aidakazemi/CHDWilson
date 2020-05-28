@@ -29,7 +29,15 @@ predictchd (age = 55, gender = 1, TChol = 250, LDL = 120, HDL = 39, SBP = 146, D
 The ***predictchd()*** function returns the probability of developing Coronary Heart Disease (CHD) risk using Total Cholesterol and LDL Cholesterol risk factors over 10 years. LDL Cholesterol is the major atherogenic lipoprotein and that measurement of LDL Cholesterol levels in the clinical setting provides an advantage base on clinical trial results.
 
 ### Cloud-based API Access
-The [PRISM platform](http://prism.resp.core.ubc.ca) allows users to access CHDWilson through the cloud. A MACRO-enabled Excel-file can be used to interact with the model and see the results. To download the PRISM Excel template file for CHDWilson please refer to the [PRISM model repository](http://resp.core.ubc.ca/ipress/prism).
+The [PRISM platform](http://prism.resp.core.ubc.ca) allows users to access BODEindex through the cloud. A MACRO-enabled Excel-file can be used to interact with the model and see the results. To download the PRISM Excel template file for BODEindex please refer to the [PRISM model repository](http://resp.core.ubc.ca/ipress/prism).
+
+#### Linux
+
+In Ubuntu, you can call the API with `curl`:
+
+```
+curl -X POST -H "Content-Type: application/json" -d '{"func":["prism_model_run"],"model_input":[{"age": 55,"gender": 1,"TChol": 250,"LDL": 120,"HDL": 39, "SBP": 146, "DBP": 88, "diabetes": 0, "smoker": 1}]}' http://model-chdwilson.cp.prism-ubc.linaralabs.com/ocpu/library/chdwilsonPrism/R/gateway/json
+```
 
 
 ### Citation
