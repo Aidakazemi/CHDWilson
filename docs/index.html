@@ -79,12 +79,23 @@ remotes::install_github("resplab/chdwilson")</code></pre>
 <a href="#coronary-heart-disease-prediction" class="anchor"></a>Coronary Heart Disease Prediction</h3>
 <p>To get a prediction for Coronary Heart Disease (CHD), you will need to pass in patient’s risk factors. For example:</p>
 <pre><code><a href="reference/predictchd.html">predictchd (age = 55, gender = 1, TChol = 250, LDL = 120, HDL = 39, SBP = 146, DBP = 88, diabetes = 0 , smoker =1)</a></code></pre>
-<p>The <strong><em>predictCHD()</em></strong> function returns the probability of developing Coronary Heart Disease (CHD) risk using Total Cholesterol and LDL Cholesterol risk factors over 10 years. LDL Cholesterol is the major atherogenic lipoprotein and that measurement of LDL Cholesterol levels in the clinical setting provides an advantage base on clinical trial results.</p>
+<p>The <strong><em>predictchd()</em></strong> function returns the probability of developing Coronary Heart Disease (CHD) risk using Total Cholesterol and LDL Cholesterol risk factors over 10 years. LDL Cholesterol is the major atherogenic lipoprotein and that measurement of LDL Cholesterol levels in the clinical setting provides an advantage base on clinical trial results.</p>
 </div>
 <div id="cloud-based-api-access" class="section level3">
 <h3 class="hasAnchor">
 <a href="#cloud-based-api-access" class="anchor"></a>Cloud-based API Access</h3>
-<p>The <a href="http://prism.resp.core.ubc.ca">PRISM platform</a> allows users to access CHDWilson through the cloud. A MACRO-enabled Excel-file can be used to interact with the model and see the results. To download the PRISM Excel template file for CHDWilson please refer to the <a href="http://resp.core.ubc.ca/ipress/prism">PRISM model repository</a>.</p>
+<p>The <a href="http://prism.resp.core.ubc.ca">PRISM platform</a> allows users to access BODEindex through the cloud. A MACRO-enabled Excel-file can be used to interact with the model and see the results. To download the PRISM Excel template file for BODEindex please refer to the <a href="http://resp.core.ubc.ca/ipress/prism">PRISM model repository</a>.</p>
+<div id="linux" class="section level4">
+<h4 class="hasAnchor">
+<a href="#linux" class="anchor"></a>Linux</h4>
+<p>In Ubuntu, you can call the API with <code>curl</code>:</p>
+<pre><code>curl \
+-X POST \
+-H "x-prism-auth-user: REPLACE_WITH_API_KEY" \
+-H "Content-Type: application/json" \
+-d '{"func":["prism_model_run"],"model_input":[{"age": 55,"gender": 1,"TChol": 250,"LDL": 120,"HDL": 39, "SBP": 146, "DBP": 88, "diabetes": 0, "smoker": 1}]}' \
+https://admin-prism-api.cp.prism-ubc.linaralabs.com/route/chdwilson/run</code></pre>
+</div>
 </div>
 <div id="citation" class="section level3">
 <h3 class="hasAnchor">
