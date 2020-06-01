@@ -36,7 +36,12 @@ The [PRISM platform](http://prism.resp.core.ubc.ca) allows users to access BODEi
 In Ubuntu, you can call the API with `curl`:
 
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"func":["prism_model_run"],"model_input":[{"age": 55,"gender": 1,"TChol": 250,"LDL": 120,"HDL": 39, "SBP": 146, "DBP": 88, "diabetes": 0, "smoker": 1}]}' http://model-chdwilson.cp.prism-ubc.linaralabs.com/ocpu/library/chdwilsonPrism/R/gateway/json
+curl \
+-X POST \
+-H "x-prism-auth-user: REPLACE_WITH_API_KEY" \
+-H "Content-Type: application/json" \
+-d '{"func":["prism_model_run"],"model_input":[{"age": 55,"gender": 1,"TChol": 250,"LDL": 120,"HDL": 39, "SBP": 146, "DBP": 88, "diabetes": 0, "smoker": 1}]}' \
+https://admin-prism-api.cp.prism-ubc.linaralabs.com/route/chdwilson/run
 ```
 
 
